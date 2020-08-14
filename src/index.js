@@ -1,8 +1,8 @@
-import react from "react"
-import {render} from "react-dom"
+import React from "react";
+import { render } from "react-dom";
 
 const Hi = () => {
-  return <p>Hi.</p>
-}
+  return <div>Hello React</div>;
+};
 
 render(<Hi />, document.getElementById("app"));

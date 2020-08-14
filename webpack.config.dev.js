@@ -8,7 +8,7 @@ process.env.NODE_ENV = "development";
 --cheap-module-source-map let us see original code in browser
 when debugging since we transpile it with babel.
 --webpack doesnt output in dev mode it server from memory
---disablehostcheck, header, https ommit in case chrome bug is fixed
+--(removed)disablehostcheck, header, https ommit in case chrome bug is fixed
 -- module.rules.use --> run babel on all of our JS and webpack will bundle that up for us
    same for css it will bundle up all of our css
 */
@@ -16,7 +16,7 @@ when debugging since we transpile it with babel.
 module.exports = {
   mode: "development",
   target: "web",
-  devTool: "cheap-module-source-map",
+  devtool: "cheap-module-source-map",
   entry: "./src/index",
   output: {
     path: path.resolve(__dirname, "build"),
@@ -27,9 +27,6 @@ module.exports = {
     stats: "minimal",
     overlay: true,
     historyApiFallback: true,
-    disableHostCheck: true,
-    header: { "Access-Control-Allow-Origin": "*" },
-    https: false,
   },
   plugins: [
     new HtmlWebpackPlugin({
