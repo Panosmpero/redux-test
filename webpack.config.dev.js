@@ -4,6 +4,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 process.env.NODE_ENV = "development";
 
+// webpack will replace process.env.API_URL with the URL we set here
+// plugins: [
+//   new webpack.DefinePlugin({
+//     "process.env.API_URL": JSON.stringify("http://localhost:3001")
+//   }),
+
 /*
 --cheap-module-source-map let us see original code in browser
 when debugging since we transpile it with babel.
@@ -29,6 +35,9 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env.API_URL": JSON.stringify("http://localhost:3001")
+    }),
     new HtmlWebpackPlugin({
       template: "src/index.html",
       favicon: "src/favicon.ico",
